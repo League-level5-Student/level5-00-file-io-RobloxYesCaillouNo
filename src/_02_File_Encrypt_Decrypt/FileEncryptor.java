@@ -2,7 +2,6 @@ package _02_File_Encrypt_Decrypt;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
 
 import javax.swing.JOptionPane;
 
@@ -27,16 +26,17 @@ public class FileEncryptor {
 	 * Use the key to shift each letter in the users input and save the final result to a file.
 	 */
 	public static void main(String[] args) {
-		HashMap<String, Integer> msgKey = new HashMap<String, Integer>();
-	
 		String s = JOptionPane.showInputDialog("Shift by how much (must be a number)");
 		int shift = Integer.parseInt(s);
-	
 		String letters = JOptionPane.showInputDialog("Type whatever");
+		String encr = "";
+		for (int i = 0; i < letters.length(); i++) {
+			encr += (char)(letters.charAt(i) + shift);
+		}
 	
 		try {
 			FileWriter fw = new FileWriter("src/_02_File_Encrypt_Decrypt/shift.txt");
-			fw.write(letters + shift);
+			fw.write(encr);
 			fw.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
