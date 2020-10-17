@@ -105,7 +105,7 @@ public class ToDoList implements ActionListener{
 			}
 		}
 		else if(e.getSource() == button4) {
-			JFileChooser jfc = new JFileChooser("src/_03_To_Do_List/ToDoList.txt");
+			JFileChooser jfc = new JFileChooser();
 			int ret = jfc.showOpenDialog(null);
 			if(ret == JFileChooser.APPROVE_OPTION) {
 				String fileName = jfc.getSelectedFile().getAbsolutePath();
@@ -114,7 +114,7 @@ public class ToDoList implements ActionListener{
 			try {
 				BufferedReader br = new BufferedReader(new FileReader("src/_03_To_Do_List/ToDoList.txt"));
 				String line = br.readLine();
-				System.out.println("Your tasks are: ");
+				System.out.println("Your tasks 4 today are: ");
 				while(line != null) {
 					System.out.println(line);
 					line = br.readLine();
